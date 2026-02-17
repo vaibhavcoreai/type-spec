@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { HashRouter, Routes, Route, Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut, User } from 'firebase/auth';
 import { auth } from './lib/firebase';
 import Home from './pages/Home';
@@ -124,7 +124,7 @@ const App: React.FC = () => {
 
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <InitialRedirect />
       <div className="max-w-[900px] mx-auto px-6 pb-20 min-h-screen selection:bg-[var(--accent)] selection:text-white">
         <Navigation user={user} />
@@ -144,7 +144,8 @@ const App: React.FC = () => {
           <div>© 2026 Vaibhav Manaji // ALL_SYSTEMS_GO</div>
         </footer>
       </div>
-    </HashRouter>
+    </BrowserRouter>
+
   );
 };
 
