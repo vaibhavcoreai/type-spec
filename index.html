@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en" class="theme-default">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Practice Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #0a0a0a;
+            --accent: #2563eb;
+            --border: #e5e7eb;
+            --surface: #f9fafb;
+            --muted: #6b7280;
+        }
+
+        .theme-dark {
+            --bg: #0a0a0a;
+            --fg: #e5e7eb;
+            --accent: #3b82f6;
+            --border: #262626;
+            --surface: #111111;
+            --muted: #9ca3af;
+        }
+
+        .theme-gray {
+            --bg: #1f2937;
+            --fg: #f3f4f6;
+            --accent: #10b981;
+            --border: #374151;
+            --surface: #111827;
+            --muted: #9ca3af;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Hide Scrollbar while keeping functionality */
+        html {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+        html::-webkit-scrollbar {
+          display: none; /* Chrome/Safari */
+        }
+
+        .font-dos {
+            font-family: 'Perfect DOS VGA 437', monospace !important;
+        }
+
+        ::selection {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+
+        .technical-border {
+            border: 1px solid var(--border);
+        }
+
+        .float-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-dark .float-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent); }
+        }
+
+        .manual-heading {
+            font-family: 'Perfect DOS VGA 437', monospace !important;
+        }
+
+        .manual-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border);
+            margin-top: 0.5rem;
+        }
+
+        @keyframes key-pulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); stroke-width: 1; }
+        }
+
+        .animate-key {
+            animation: key-pulse 3s infinite ease-in-out;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.574.0",
+    "firebase/app": "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js",
+    "firebase/": "https://esm.sh/firebase@^12.9.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
