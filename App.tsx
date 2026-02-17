@@ -12,22 +12,9 @@ import Auth from './pages/Auth';
 import MobileGate from './components/MobileGate';
 import { AppSettings } from './types';
 
-const InitialRedirect: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [hasRedirected, setHasRedirected] = useState(false);
-
-  useEffect(() => {
-    if (!hasRedirected && location.pathname !== '/') {
-      navigate('/', { replace: true });
-      setHasRedirected(true);
-    }
-  }, [navigate, location.pathname, hasRedirected]);
-
-  return null;
-};
 
 const Navigation: React.FC<{ user: User | null }> = ({ user }) => {
+
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
 
@@ -159,9 +146,9 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <InitialRedirect />
       <div className="max-w-[900px] mx-auto px-6 pb-20 min-h-screen selection:bg-[var(--accent)] selection:text-white">
         <Navigation user={user} />
+
         <main>
           <Routes>
             <Route path="/" element={<Home isAuthorized={!!user} onLogout={handleLogout} />} />

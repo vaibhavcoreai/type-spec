@@ -18,6 +18,16 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
+    <script>
+        // Apply theme immediately to prevent flashing
+        const savedSettings = localStorage.getItem('typing-ref-settings');
+        if (savedSettings) {
+            const theme = JSON.parse(savedSettings).theme;
+            if (theme === 'dark') document.documentElement.className = 'theme-dark';
+            else if (theme === 'gray') document.documentElement.className = 'theme-gray';
+            else document.documentElement.className = 'theme-default';
+        }
+    </script>
     <style>
         :root {
             --bg: #ffffff;
