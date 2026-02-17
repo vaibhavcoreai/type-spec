@@ -63,10 +63,19 @@ const App: React.FC = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
+    const authMinTime = 1000;
+    const startTime = Date.now();
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+      const timeElapsed = Date.now() - startTime;
+      const remainingTime = Math.max(0, authMinTime - timeElapsed);
+
+      setTimeout(() => {
+        setUser(currentUser);
+        setLoading(false);
+      }, remainingTime);
     });
+
 
     const saved = localStorage.getItem('typing-ref-settings');
     if (saved) {
@@ -146,8 +155,9 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <div className="max-w-[900px] mx-auto px-6 pb-20 min-h-screen selection:bg-[var(--accent)] selection:text-white">
+      <div className="max-w-[900px] mx-auto px-6 pb-20 min-h-screen selection:bg-[var(--accent)] selection:text-white animate-in fade-in duration-500">
         <Navigation user={user} />
+
 
         <main>
           <Routes>
